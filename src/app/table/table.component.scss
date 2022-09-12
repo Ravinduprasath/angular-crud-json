@@ -1,0 +1,14 @@
+table {
+    width: 100%;
+}
+
+.table-container{
+    margin: 20px;
+}
+
+th, td {
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

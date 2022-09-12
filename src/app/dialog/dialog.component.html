@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Add Student</h1>
+
+<div class="container">
+<form [formGroup]="studentForm">
+    <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input formControlName="firstName" matInput placeholder="First Name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input formControlName="lastName" matInput placeholder="Last Name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Date of birth</mat-label>
+        <input formControlName="dob" matInput [matDatepicker]="picker" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Course</mat-label>
+        <mat-select formControlName="course" placeholder="Course" required>
+            <div *ngFor="let course of courseList">
+                <mat-option value={{course.name}}>{{course.name}}</mat-option>
+            </div>   
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Email Address</mat-label>
+        <input formControlName="email" matInput placeholder="pat@example.com" required>
+    </mat-form-field>
+</form>
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" (click)="submitStudentData()">{{ submitButton }}</button>
+</div>
